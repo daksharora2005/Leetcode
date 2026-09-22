@@ -7,7 +7,9 @@ class Solution(object):
         m = 0
         lowest=prices[0]
         for p in prices:
-            lowest=min(p,lowest)
-            m=max(m,p-lowest)
+            if p<lowest:
+                lowest=p
+            elif m<p-lowest:
+                m=p-lowest
         return m
 
