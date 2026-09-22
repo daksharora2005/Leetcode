@@ -1,10 +1,12 @@
 class Solution(object):
     def maxProfit(self, prices):
-        mp=float('inf')
-        mx=0
-        for price in prices:
-            if price<mp:
-                mp=price
-            elif price-mp>mx:
-                mx=price-mp    
-        return mx
+        max_profit=0
+        max_price=0
+        while prices:
+            price=prices.pop()
+
+            if price>max_price:
+                max_price=price
+            else:
+                max_profit=max(max_profit,max_price-price)
+        return max_profit
