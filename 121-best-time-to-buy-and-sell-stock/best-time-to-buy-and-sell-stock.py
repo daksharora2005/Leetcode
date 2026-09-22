@@ -4,12 +4,21 @@ class Solution(object):
         :type prices: List[int]
         :rtype: int
         """
-        m = 0
+        if not prices:
+            return 0
+        upper_bound=max(prices)-min(prices)
         lowest=prices[0]
-        for p in prices:
-            if p<lowest:
-                lowest=p
-            elif m<p-lowest:
-                m=p-lowest
+        m=0
+        for price in prices:
+            lowest=min(lowest, price)
+            profit=price-lowest
+            m=max(m,profit)
+            if m==upper_bound:
+                return m
+
         return m
+
+
+
+            
 
