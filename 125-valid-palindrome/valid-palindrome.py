@@ -4,9 +4,20 @@ class Solution(object):
         :type s: str
         :rtype: bool
         """
-        s="".join(i for i in s if i.isalnum())
-        s=s.lower()
-        return True if s[::-1]==s else False
+        st=0
+        en=len(s)-1
+        while st<en:
+            if not s[st].isalnum():
+                st+=1
+                continue
+            if not s[en].isalnum():
+                en-=1
+                continue
+            if s[st].lower()!=s[en].lower():
+                return False 
+            st+=1
+            en-=1
+        return True
 
 
         
