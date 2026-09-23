@@ -4,7 +4,11 @@ class Solution(object):
         :type nums: List[int]
         :rtype: bool
         """
-        if len(nums)==len(set(nums)):
-            return False
-        return True
+        h=set()
+        for i in nums:
+            if i in h:
+                return True
+            h.add(i)
+        return False
+
         
