@@ -4,15 +4,18 @@ class Solution(object):
         :type nums: List[int]
         :rtype: List[int]
         """
-        n=len(nums)
-        ans=[1]*n
-        left_prod=1
-        for i in range(n):
-            ans[i]=left_prod
-            left_prod*=nums[i]
-        right_prod=1
-        for i in range(n - 1, -1, -1):
-            ans[i]*=right_prod
-            right_prod*=nums[i]
-            
-        return ans
+        total = 1
+        zeroCount = 0
+        for i in nums:
+            if i==0:
+                zeroCount += 1
+            else:
+                total *= i
+        if zeroCount>1:
+            result = [0*x for x in nums]
+        elif zeroCount==1:
+            result = [0 if x != 0 else total for x in nums]
+        else:
+            result = [total/x for x in nums]
+        
+        return result
