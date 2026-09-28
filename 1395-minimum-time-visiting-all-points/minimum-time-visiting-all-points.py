@@ -1,11 +1,13 @@
 class Solution(object):
     def minTimeToVisitAllPoints(self, points):
+        """
+        :type points: List[List[int]]
+        :rtype: int
+        """
         time=0
-        for i in range(1,len(points)):
-            x1,y1=points[i-1]
-            x2,y2=points[i]
-            x=abs(x2-x1)
-            y=abs(y2-y1)
-            time+=max(x,y)
+        for i in range(1, len(points)):
+            x_diff=abs(points[i][0]-points[i-1][0])
+            y_diff=abs(points[i][1]-points[i-1][1])
+            time+=max(x_diff,y_diff)    
         return time
             
