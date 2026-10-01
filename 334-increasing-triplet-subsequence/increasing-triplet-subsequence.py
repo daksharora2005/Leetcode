@@ -5,9 +5,9 @@ class Solution:
         for i in nums:
             if i<=first:
                 first=i
-            elif i<second:
+            elif i<=second:
                 second=i
-            elif i>second:
+            else:
                 return True
         return False
 
