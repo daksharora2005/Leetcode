@@ -10,6 +10,6 @@ class Solution:
                 b+=1
             if b not in bal:
                 bal[b]=i
-            elif b in bal:
+            else:
                 m=max(m,i-bal[b])
         return m
