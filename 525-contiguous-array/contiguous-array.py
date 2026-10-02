@@ -3,13 +3,15 @@ class Solution:
         bal={0:-1}
         b=0
         m=0
-        for i in range(len(nums)):
-            if nums[i]==0:
+        for i,ch in enumerate(nums):
+            if ch==0:
                 b-=1
             else:
                 b+=1
-            if b not in bal:
-                bal[b]=i
+            if b in bal:
+                l=i-bal[b]
+                if l>m:
+                    m=l
             else:
-                m=max(m,i-bal[b])
+                bal[b]=i
         return m
