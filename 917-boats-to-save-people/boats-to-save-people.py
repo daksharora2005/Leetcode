@@ -7,10 +7,9 @@ class Solution:
         while left<=right:
             total=people[left]+people[right]
             if total>limit:
-                boat+=1
                 right-=1
             else:
                 left+=1
                 right-=1
-                boat+=1
+            boat+=1
         return boat            
