@@ -3,14 +3,11 @@ class Solution:
         """
         Do not return anything, modify arr in-place instead.
         """
-        i=0
+        arr2=[]
         l=len(arr)
-        while i<l:
-            if arr[i]==0:
-                arr.pop()
-                arr.insert(i+1,0)
-                i+=2
+        for i in arr:
+            if i!=0:
+                arr2.append(i)
             else:
-                i+=1   
-
-        
+                arr2.extend([0,0])
+        arr[:]=arr2[:l]
