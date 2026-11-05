@@ -1,24 +1,26 @@
 class Solution:
     def duplicateZeros(self, arr: list[int]) -> None:
         n=len(arr)
-        z=0
-        l=0
-        while l<n-z:
-            if arr[l]==0:
-                if l==n-1-z:
-                    arr[n-1]=0
-                    n-=1
-                    break
-                z+=1
-            l+=1
-        r=l-1
-        w=n-1
-        while r>=0:
-            if arr[r]==0:
-                arr[w]=0
-                arr[w-1]=0
-                w-=2
-            else:
-                arr[w]=arr[r]
-                w-=1
-            r-=1
+        x=n
+        for i in range(n):
+            if arr[i]==0:
+                x+=1
+        if x!=n:
+            fast=n-1
+            slow=x-1
+            while fast>=0:
+                if arr[fast]!=0:
+                    if slow<n:
+                        arr[slow]=arr[fast]
+                    slow-=1
+                else:
+                    if slow<n:
+                        arr[slow]=0
+                    slow-=1
+                    if slow<n:
+                        arr[slow]=0
+                    slow-=1
+                fast-=1
+
+
+
