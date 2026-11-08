@@ -1,7 +1,5 @@
 class Solution:
-    def compress(self, chars: list[str]) -> int:
-        if not chars:
-            return 0  
+    def compress(self, chars: list[str]) -> int: 
         write=0
         read=0
         n=len(chars)
