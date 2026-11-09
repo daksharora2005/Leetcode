@@ -4,8 +4,7 @@ class Solution:
         m=cur
         for i in range(k,len(nums)):
             cur+=nums[i]-nums[i-k]
-            if cur>m:
-                m=cur
+            m=max(cur,m)
         return m/k
             
             
