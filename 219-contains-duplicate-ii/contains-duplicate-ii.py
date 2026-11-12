@@ -4,6 +4,12 @@ class Solution:
         n=len(nums)
         if k>n:
             k=n
+            for i in range(k):
+                if nums[i] in s:
+                    return True
+                else:
+                    s.add(nums[i])
+            return False
         for i in range(k):
             if nums[i] in s:
                 return True
