@@ -6,6 +6,6 @@ class Solution:
             if nums[i] in s:
                 return True
             s.add(nums[i])
-            if len(s) > k:
+            if i >= k:
                 s.discard(nums[i - k])
         return False
