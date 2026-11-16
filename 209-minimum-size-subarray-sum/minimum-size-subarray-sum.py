@@ -3,10 +3,14 @@ class Solution:
         left=0
         ml=float("inf")
         s=0
+        f=False
         for right in range(len(nums)):
             s+=nums[right]
             while s>=target:
-                ml=min(ml,right-left+1)
+                x=right-left+1
+                if ml>x:
+                    ml=x
+                    f=True
                 s-=nums[left]
                 left+=1
-        return ml if ml!=float("inf") else 0
+        return ml if f else 0
