@@ -1,27 +1,34 @@
 class Solution:
     def checkInclusion(self, s1: str, s2: str) -> bool:
-        check=""
-        check=s1[-1::-1]
+        if len(s1)>len(s2):
+            return False
         d1={}
-        for i in check:
+        for i in s1:
             if i not in d1:
-                d1[i]=0
+                d1[i]=1
             else:
                 d1[i]+=1
         d2={}
         n=len(s1)
-        i=0
-        while n<=len(s2):
-            d2={}
-            check2=s2[i:n]
-            for j in check2:
-                if j not in d2:
-                    d2[j]=0
-                else:
-                    d2[j]+=1
-            if d2==d1:
-                return True
+        for i in range(n):
+            if s2[i] in d2:
+                d2[s2[i]]+=1
             else:
-                i+=1
+                d2[s2[i]]=1
+        j=0
+        while True:
+            if d1==d2:
+                return True
+            elif n==len(s2):
+                break
+            else:
+                d2[s2[j]]-=1
+                if d2[s2[j]]==0:
+                    del d2[s2[j]]
+                if s2[n] in d2:
+                    d2[s2[n]]+=1
+                else:
+                    d2[s2[n]]=1
                 n+=1
+                j+=1
         return False
